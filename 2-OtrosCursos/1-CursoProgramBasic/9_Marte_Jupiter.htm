@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Tu peso en un lugar donde pesas menos</title>
+    </head>
+    <body>
+        <h1>Tu peso en otro planeta</h1>
+        <p>En la tierra pesas distinto que en Marte o Júpiter</p>
+        <script>
+            var pesoUsuario = prompt("Cual es tu peso?");
+            var planeta = parseInt(prompt("Elige tu planeta. \n1 es marte, 2 es jupiter"));
+            var peso = parseInt(pesoUsuario);
+            var g_tierra = 9.8;
+            var g_marte = 3.7;
+            var g_jupiter = 24.8;
+            var peso_final;
+            var planetChoice = "El Planeta desconocido";
+
+            peso_final = planeta == 1 ? peso * g_marte / g_tierra : planeta == 2 ? peso * g_jupiter / g_tierra :  1000000;
+            planetChoice = planeta == 1 ? "Marte" : planeta == 2 ? "Júpiter" : planetChoice;
+            
+            peso_final = parseInt(peso_final); //Esto para desaparecer los decimales
+            document.write("Tu peso en " + planetChoice + " es <strong>"+peso_final+" kilos</strong>");
+        </script>
+    </body>
+</html>
