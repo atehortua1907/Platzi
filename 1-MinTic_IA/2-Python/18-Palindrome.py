@@ -6,4 +6,4 @@ if __name__ == "__main__":
         if isPalindrome:
             print('La palabra {} es palíndrome'.format(palabra))
         else:
-            print('La palabra {} no es palíndrome'.format(palabra))
+            print('La palabra {} no es palíndrome'.format(palabra))      
