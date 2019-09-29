@@ -115,7 +115,9 @@ def run():
             letter_indexes = []
 
         try:
+            #Cuando no haya este tipo de caracteres el sistema genera un error al no encontralos
             hidden_word.index('-')
+            #Se controla: 
         except ValueError:
             print('')
             print('¡Felicidades! Ganaste. La palabra es: {}'.format(word))
@@ -124,3 +126,4 @@ def run():
 if __name__ == "__main__":
     print('B I E N V E N I D O S A A H O R C A D O S')
     run()
+    hola = 'pirobitos'
