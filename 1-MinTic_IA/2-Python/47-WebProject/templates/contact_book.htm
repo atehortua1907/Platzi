@@ -1,2 +1,9 @@
 {% extends 'index.htm' %} {% block body %}
+<ul>
+    {% for contact in contacts %}
+        <li>
+            {{ contact._name }} <a href="/contacts/"{{contact._id}}>Ver más</a>
+        </li>
+    {% endfor %}
+</ul>
 <a href="/add">Añadir Contacto</a> {% endblock %}

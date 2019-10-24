@@ -1,13 +1,14 @@
 import csv
 import os.path
 
-save_path = 'D:/Repositories/Platzi/1-MinTic_IA/2-Python/45-AgendaPersistenciaDatos/'
+save_path = 'D:/David A/Repositories/Platzi/1-MinTic_IA/2-Python/47-WebProject/'
 fileName = 'Contactos'
 completeName = os.path.join(save_path, f"{fileName}.txt")
 
 class Contact:
 
-    def __init__(self, name, phone, email):
+    def __init__(self, identification, name, phone, email):
+        self._id = identification
         self._name = name
         self._phone = phone
         self._mail = email
@@ -17,8 +18,8 @@ class ContactBook:
     def __init__(self):
         self._contacts = []
 
-    def add(self, name, phone, mail):
-        contact = Contact(name,phone, mail)
+    def add(self,identification, name, phone, mail):
+        contact = Contact(identification, name,phone, mail)
         self._contacts.append(contact)
         self._SaveContact()
 
@@ -54,18 +55,20 @@ class ContactBook:
     def _SaveContact(self):
         with open(completeName, 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(('name', 'phone', 'mail'))
+            writer.writerow(('id','name', 'phone', 'mail'))
 
-            for index, contact in enumerate(self._contacts):
-                writer.writerow((contact._name, contact._phone, contact._mail))
+            for contact in self._contacts:
+                writer.writerow((contact._id, contact._name, contact._phone, contact._mail))
     
     def RetrieveContacts(self):
+        self._contacts = []
         with open(completeName, 'r') as file:
             reader = csv.reader(file)
             for index, row in enumerate(reader):                
                 if  index == 0:
                     continue
-                self._contacts.append(Contact(row[0], row[1], row[2]))
+                self._contacts.append(Contact(row[0], row[1], row[2], row[3]))
+        return self._contacts
 
 
 
