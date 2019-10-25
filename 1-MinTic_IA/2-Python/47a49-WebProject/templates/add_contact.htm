@@ -1,4 +1,8 @@
-{% extends 'index.htm' %} {% block body %}
+ {% extends 'index.htm' %} {% block body %} {% with messages = get_flashed_messages() %}
+<!--with keyword para variable local en jinja -->
+{% if messages %} {% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %} {% endif %} {% endwith %}
 <form action="/add" method="post">
     <fieldset>
         <legend>Añadir nuevo contacto</legend>

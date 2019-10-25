@@ -1,7 +1,8 @@
 import csv
 import os.path
 
-save_path = 'D:/David A/Repositories/Platzi/1-MinTic_IA/2-Python/47-WebProject/'
+# save_path = 'D:/David A/Repositories/Platzi/1-MinTic_IA/2-Python/47-WebProject/' #Inaltec
+save_path = 'D:/Repositories/Platzi/1-MinTic_IA/2-Python/47a49-WebProject/' #Laptod
 fileName = 'Contactos'
 completeName = os.path.join(save_path, f"{fileName}.txt")
 
