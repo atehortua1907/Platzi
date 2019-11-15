@@ -60,14 +60,14 @@ class ContactBook:
                 writer.writerow((contact._name, contact._phone, contact._mail))
     
     def RetrieveContacts(self):
+        if not os.path.isfile(completeName):
+            return
         with open(completeName, 'r') as file:
             reader = csv.reader(file)
             for index, row in enumerate(reader):                
                 if  index == 0:
                     continue
                 self._contacts.append(Contact(row[0], row[1], row[2]))
-
-
 
     def _PrintContact(self, contact):
         print('--------*--------*--------*--------*--------*--------*------')
@@ -76,11 +76,10 @@ class ContactBook:
         print(f'Email: {contact._mail}')
         print('--------*--------*--------*--------*--------*--------*------')
 
-
 def run():
 
     contact_book = ContactBook()
-    contact_book.RetrieveContacts()
+    contact_book.RetrieveContacts()    
 
     while True:
         command = str(input('''
@@ -94,6 +93,7 @@ def run():
             [s]alir
         '''))
 
+       
         if command == 'a':
             
             name = str(input('Nombre Contacto: '))
@@ -130,7 +130,13 @@ def run():
         else:
             print('Comando no encontrado.')
 
+def fnJoan():
+    print('HOLA JOAN!!')
 
 if __name__ == '__main__':
     print('BIENVENIDO A LA AGENDA')
+    fnJoan()
     run()
+
+
+       

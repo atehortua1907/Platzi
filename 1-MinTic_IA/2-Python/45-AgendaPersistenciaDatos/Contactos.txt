@@ -1,2 +1,6 @@
 name,phone,mail
 David Atehortua,3003283488,atehortua1907@gmail.com
+Joan,666,joan@joan.com
+Emililano,Arango,gmail
+& C:/Users/Gohan/AppData/Local/Programs/Python/Python37-32/python.exe d:/Repositories/Platzi/1-MinTic_IA/2-Python/45-AgendaPersistenciaDatos/Contacts.py,& C:/Users/Gohan/AppData/Local/Programs/Python/Python37-32/python.exe d:/Repositories/Platzi/1-MinTic_IA/2-Python/45-AgendaPersistenciaDatos/Contacts.py,clear
+a,a,a
