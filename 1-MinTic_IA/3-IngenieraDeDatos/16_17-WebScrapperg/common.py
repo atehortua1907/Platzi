@@ -1,5 +1,6 @@
-import yaml
 import os
+import yaml
+
 
 script_dir = os.path.dirname(__file__)
 rel_path = "config.yaml"
