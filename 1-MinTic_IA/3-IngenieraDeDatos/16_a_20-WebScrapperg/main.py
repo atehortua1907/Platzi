@@ -6,6 +6,8 @@ from common import config
 import re #regex
 from requests.exceptions import HTTPError
 from urllib3.exceptions import MaxRetryError
+import datetime
+import csv
 
 logger = logging.getLogger(__name__)
 is_well_formed_url = re.compile(r'^https?://.+/.+$') #https://example.com/hello
@@ -24,9 +26,22 @@ def _news_scraper(news_site_uid):
         if article:
             logger.info('Article fetched!!')
             articles.append(article)
-            print(article.title)
-    
-    print(len(articles))
+            break #rompemos el ciclo con el fin de probar
+
+    _save_articles(news_site_uid, articles)
+ 
+def _save_articles(news_site_uid, articles):
+    now = datetime.datetime.now().strftime('%Y_&m_&d')
+    out_file_name = f'{news_site_uid}_{now}_articles.csv'
+    csv_headers = filter(lambda property: not property.startswith('_'), dir(articles[0]))
+    with open(out_file_name, mode='w+') as file:
+        writer = csv.writer(file)
+        writer.writerow(csv_headers)
+
+        for article in articles:
+            row = [str(getattr(article, prop)) for prop in csv_headers]
+            writer.writerow(row)
+
 
 def _fetch_article(news_site_uid, host, link):
     logger.info(f'start fetching article at {link}')
