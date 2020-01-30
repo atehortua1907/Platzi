@@ -20,18 +20,22 @@ def _news_scraper(news_site_uid):
     homepage = news.HomePage(news_site_uid, host)
 
     articles = []
-    for link in homepage.article_links:
+    listLinks = list(homepage.article_links)
+    count = 0
+    for link in listLinks[0:30]:
+        count += 1
+        logger.info(count)
         article = _fetch_article(news_site_uid, host, link)
 
         if article:
             logger.info('Article fetched!!')
             articles.append(article)
-            break #rompemos el ciclo con el fin de probar
+            #break #rompemos el ciclo con el fin de probar
 
     _save_articles(news_site_uid, articles)
  
 def _save_articles(news_site_uid, articles):
-    now = datetime.datetime.now().strftime('%Y_&m_&d')
+    now = datetime.datetime.now().strftime('%Y_%m_%d')
     out_file_name = f'{news_site_uid}_{now}_articles.csv'
     csv_headers = filter(lambda property: not property.startswith('_'), dir(articles[0]))
     with open(out_file_name, mode='w+') as file:
