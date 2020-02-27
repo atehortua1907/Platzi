@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["eluniversal"]
+            "args": ["D:/Repositories/Platzi/1-MinTic_IA/3-IngenieraDeDatos/22_23-Series_DataFrames/eluniversal_2019_06_07_articles.csv"]
         }
     ]
 }
