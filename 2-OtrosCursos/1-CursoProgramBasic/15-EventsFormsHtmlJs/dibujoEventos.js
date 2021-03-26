@@ -1,5 +1,6 @@
 
-var texto = document.getElementById("texto_lineas");
+var texto = document.getElementById("idTexto");
+var reGex = document.getElementById("idRegex");
 var boton = document.getElementById("botoncito");
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d"); 
@@ -10,8 +11,14 @@ var lineCount = 0;
 boton.addEventListener("click", dibujoPorClick);
 
 function dibujoPorClick(){
-    var lineas = parseInt(texto.value);
-    dibujoCompleto(ancho/lineas,lineas);
+
+    var regex = new RegExp(reGex.value);
+    if(regex.test(texto.value))
+        alert("Texto valido para el regex");
+    else
+        alert("Texto invalido para el regex");
+    // var lineas = parseInt(texto.value);
+    // dibujoCompleto(ancho/lineas,lineas);
 }
 
 function dibujarLinea(color, xInicial, yInicial, xFinal, yFinal){
